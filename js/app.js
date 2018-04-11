@@ -1,3 +1,4 @@
+var final = $(".container2");
 var myDeck = document.getElementsByTagName("ul")[1];
 var myArray;
 var moveCount = document.getElementsByClassName('moves')[0];
@@ -138,7 +139,8 @@ function success() {
     successDiv.appendChild(successP);
     myDeck.appendChild(successDiv);
 }
-
+ final.css("display", "flex");
+      final.addClass("jump");
 
 /*
  * set up the event listener for a card. If a card is clicked:
