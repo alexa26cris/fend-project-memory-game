@@ -1,19 +1,45 @@
-/*
- * Create a list that holds all of your cards
- */
+var myDeck = document.getElementsByTagName("ul")[1];
+var myArray;
+var moveCount = document.getElementsByClassName('moves')[0];
+var totalMoves = moveCount.innerText;
+var stars =document.getElementsByClassName('fa-star');
+var reset = document.getElementsByClassName('restart')[0];
+const successMessage = "Congratulations! You won the game.";
 
 
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
+ const classNamesArray = [
+     "fa fa-diamond", "fa fa-paper-plane-0",
+     "fa fa-anchor", "fa fa-bolt",
+     "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb"
+ ]
 
-// Shuffle function from http://stackoverflow.com/a/2450976
+ function createCard() {
+     var li =document.createElement('li');
+     var icon = document.createElement("i");
+     li.classList.add('card');
+     deck.appendChild(li);
+     li.appendChild(icon);
+     icon.classList.add("fa");
+ }
+
+function popList() {
+for (var i=0; i<8; i++) {
+
+        for (var y=0; y<2; y++) {
+            var iCard=createCard();
+            iCard.classList.add(classNamesArray[y]);
+            console.log(iCard);
+        }
+}
+}
+popList();
+var myCards = document.getElementsByClassName('card');
+var unMatchedCards = myCards.length;
+
+
+reset.addEventListener('click', resetMatchingGame);
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
-
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex -= 1;
@@ -21,8 +47,96 @@ function shuffle(array) {
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
     }
-
     return array;
+}
+function resetMatchingGame() {
+    shuffle(myCards);
+    hideAll(myCards);
+    resetCount();
+    resetStars();
+}
+
+function hideAll(myArray) {
+    for (var i = 0; i<myArray.length; i++){
+        myArray[i].style.backgroundColor="#efff77";
+        myArray[i].style.color="#efff77";
+    }
+}
+
+function resetCount() {
+    moveCount.innerText = 0;
+}
+
+function resetStars() {
+    for (var i=0; i<stars.length ; i++){
+        stars[i].classList.remove('outline');
+    }
+}
+
+myDeck.addEventListener("click", flipCard);
+
+function flipPair(a,b) {
+    var first = flipCard(a);
+    var second = flipCard(b);
+    console.log(first, second);
+     if (first === second) {
+        first.classList.add('match');
+
+          second.classList.add('match');
+
+       first.stopPropagation();
+           second.stopPropagation();
+
+       unMatchedCards = unMatchedCards -2;
+   }
+                if (unMatchedCards = 0) {
+                    success();
+                }
+
+  totalMoves +=1;
+   }
+function flipCard(evt) {
+    console.log("flipcard started", evt);
+    var className = evt.target.classList;
+
+    evt.target.classList.add('open');
+    evt.target.classList.add('show');
+
+    console.log(className);
+    return className;
+}
+
+function stars(numMoves) {
+    if (8< numMoves && numMoves <=10) {
+
+    }
+    else if (10<numMoves && numMoves<=11) {
+
+    }
+    else if (11<numMoves) {
+       
+    }
+}
+
+function success() {
+ 
+    var stars =document.getElementsByClassName("fa-star");
+    for (var i = 0; i<stars.length; i++) {
+        stars[i].classList.remove('outline');
+        console.log("outline "+i);
+    }
+    resetMatchingGame();
+    var successDiv = document.createElement('div');
+    var successP = document.createElement('p');
+    successP.textContent = "Well done! You're awesome! Do you want to play again?";
+    successDiv.style.width = "960px";
+    successDiv.style.height = "500px";
+    successDiv.style.background = "#fcdede";
+    successDiv.style.color = "#ce1010";
+    successDiv.style.zIndex = "10";
+
+    successDiv.appendChild(successP);
+    myDeck.appendChild(successDiv);
 }
 
 
