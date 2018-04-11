@@ -28,6 +28,18 @@ body {
     flex-direction: column;
 }
 
+.container2 {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 180px;
+  animation-name: win;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+}
+
 .jump {
   animation-name: win;
   animation-duration: 3s;
