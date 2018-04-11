@@ -28,6 +28,13 @@ body {
     flex-direction: column;
 }
 
+.jump {
+  animation-name: win;
+  animation-duration: 3s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+}
+
 h1 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
