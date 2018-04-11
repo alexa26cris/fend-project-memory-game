@@ -33,10 +33,6 @@ h1 {
     font-weight: 300;
 }
 
-/*
- * Styles for the deck of cards
- */
-
 .deck {
     width: 660px;
     min-height: 680px;
@@ -49,6 +45,11 @@ h1 {
     justify-content: space-between;
     align-items: center;
     margin: 0 0 3em;
+}
+
+.outline {
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    color: #FFF;
 }
 
 .deck .card {
@@ -67,8 +68,9 @@ h1 {
 
 .deck .card.open {
     transform: rotateY(0);
-    background: #02b3e4;
+    background: #00bdf2;
     cursor: default;
+    color: orange;
 }
 
 .deck .card.show {
@@ -77,13 +79,10 @@ h1 {
 
 .deck .card.match {
     cursor: default;
-    background: #02ccba;
+    background: #0ecebd;
     font-size: 33px;
 }
 
-/*
- * Styles for the Score Panel
- */
 
 .score-panel {
     text-align: left;
