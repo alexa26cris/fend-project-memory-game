@@ -1,4 +1,4 @@
-var restartGame = $('#restart');
+
 
 /*
  * Create a list that holds all of your cards
@@ -78,9 +78,9 @@ function findMatch() {
       openCard[0][0].classList.add('bounceIn', 'wrong');
       openCard[1][0].classList.add('bounceIn', 'wrong');
       
-      setTimeout(removeClasses, 2000);
+      setTimeout(removeClasses, 500);
       
-      setTimeout(removeOpenCards, 2000);
+      setTimeout(removeOpenCards, 500);
       moves++;
       }
     }
@@ -161,7 +161,7 @@ function startTimer() {
       timer = setInterval( function(){
         $('.sec').html(time(++sec % 60));
         $('.min').html(time(parseInt(sec / 60, 10)));
-      }, 2000);
+      }, 500);
     }
   })
  }
@@ -175,18 +175,11 @@ shuffle(cards);
 findMatch();
 
 
-// Need HELP with the 'restart' and 'again-btn' buttons. Thanks!
+
+restartGame.on('click', function () {
+  location.reload();
+});
+
 function restartGame() {
-  $('.restart').click(function() {
-      $('.panel').show()
-  });
-  }
-
-function replayGame() {
-document.getElementById('#restart').reset();
+document.getElementById('restart').reset(); 
 }
-
-document.getElementById('reset').onclick = function() {
-document.getElementById('#restart').innerHTML = "";
-};
-
