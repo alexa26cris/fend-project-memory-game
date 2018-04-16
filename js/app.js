@@ -1,5 +1,3 @@
-
-
 /*
  * Create a list that holds all of your cards
  */
@@ -166,20 +164,27 @@ function startTimer() {
   })
  }
 
-createCard();
-
-startTimer();
-
-shuffle(cards);
-
-findMatch();
-
-
-
-restartGame.on('click', function () {
-  location.reload();
-});
+function init() {
+  createCard();
+  startTimer();
+  shuffle(cards);
+  findMatch();
+}
+init();
 
 function restartGame() {
-document.getElementById('restart').reset(); 
+  $('.deck').html("");
+  $('.sec').html("00");
+  $('.min').html("00");
+  $('#starOne').addClass('fa-star');
+  $('#starTwo').addClass('fa-star');
+  $('.moves').html("0");
+  openCard=[];
+  startGame=false;
+  starts=3;
+  moves=0;
+  matchFound=0;
+  starRating="3";
+  clearInterval(timer);
+  init()
 }
