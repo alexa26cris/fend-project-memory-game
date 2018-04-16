@@ -10,7 +10,6 @@
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
     <link rel="stylesheet" href="css/app.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -35,11 +34,12 @@
           </div>
           <div id="timer"><span id="timer-txt">Timer: </span>
             <label class="min">00</label>:<label class="sec">00</label></div>
-          <div class="restart1"><button type="button" class=" fa fa-repeat" id="restart1">Restart</button></div>
-          <div class="restart" id="restart">
-        		<span id="restart-text"> Restart: </span><button type="button" class="fa fa-repeat"></button>
-        	</div>
-        </section>
+
+      <div class="restart" >
+        <span id="restart-text"> Restart: </span>
+        <button id="restart" type="button" class="fa fa-repeat"></button>
+      </div>
+    </section>
 
         <ul class="deck">
         </ul>
@@ -47,19 +47,18 @@
 
     <div id="win-popup" class="popup zoomIn">
 
-   
       <div class="popup-content">
         <span class="close">&times;</span>
         <h1>Congratulations!</h1>
         <h3>You won with <span id="total-moves">0</span> moves and </span><span id="total-stars">0</span> out of 3 stars.</h3>
+      <h3>Total time: <span class="min">0</span> minutes and <span class="sec">0</span> seconds.</h3>
         <button type="button" class="button" id="again-btn">
           Play Again?
         </button>
       </div>
-
     </div>
 
-
     <script src="js/app.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body>
 </html>
