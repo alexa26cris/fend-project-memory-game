@@ -1,6 +1,6 @@
 Memory Game
 
-*Description*
+_Description_
 A project created for Udacity and developed using HTML, CSS, and JavaScript.
 
 How To Play:
